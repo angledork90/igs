@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vérification de Carte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .valid {
+            color: green;
+        }
+        .invalid {
+            color: red;
+        }
+        .icon {
+            font-size: 2em;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vérification de Carte</h1>
+        <input type="password" id="password" placeholder="Entrez le mot de passe">
+        <button onclick="checkPassword()">Vérifier</button>
+        <div id="message" class="message"></div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const message = document.getElementById('message');
+            const validPassword = 'IGS.';
+
+            if (password === validPassword) {
+                message.innerHTML = '<i class="fas fa-check-circle icon"></i>Carte valide - Inspection Générale de Santé';
+                message.classList.remove('invalid');
+                message.classList.add('valid');
+            } else {
+                message.innerHTML = '<i class="fas fa-times-circle icon"></i>Carte invalide';
+                message.classList.remove('valid');
+                message.classList.add('invalid');
+            }
+        }
+    </script>
+</body>
+</html>
